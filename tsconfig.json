@@ -12,14 +12,16 @@
       "*": [
         "node_modules/*",
         "src/types/*"
-      ]
+      ],
+      "@features/*": ["features/*"],
+      "@lib/*": ["lib/*"],
     },
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "lib": [ "ES2020.Promise" ]
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts", "src/**/*.js"
   ],
   "exclude": [
     "node_modules"
