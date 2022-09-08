@@ -4,12 +4,14 @@ import EventEmitter from 'events'
 import { getAuthorLinks, getPoemPageUrls } from './author'
 import { BASE_POEM_URL, SEED_CHINESE_AUTHORS_URL } from './constants'
 import { getPoemFromUrl } from './poem'
+import { syncRecord } from './localToRemoteSync'
 
 const eventEmitter = new EventEmitter()
 
 const events = {
   poemSave: 'poem:save',
-  seedAuthor: 'poem:seed:author'
+  seedAuthor: 'poem:seed:author',
+  syncToRemote: 'poem:remote:sync'
 }
 
 const savePoem = async (url: string) => {
@@ -17,6 +19,7 @@ const savePoem = async (url: string) => {
   await poemStorage.put(url, JSON.stringify(poem))
 
   console.log('Poem is fetched and saved from url: ', url)
+  eventEmitter.emit(events.syncToRemote, url)
 }
 
 const seedAuthor = async (url: string) => {
@@ -45,6 +48,7 @@ const seedAuthors = async (url: string) => {
 export const syncPoem = async () => {
   eventEmitter.on(events.seedAuthor, seedAuthor)
   eventEmitter.on(events.poemSave, savePoem)
+  eventEmitter.on(events.syncToRemote, syncRecord)
 
   seedAuthors(SEED_CHINESE_AUTHORS_URL)
 }

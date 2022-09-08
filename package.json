@@ -15,6 +15,8 @@
   "author": "Khoa Bui <buidangkhoa2602@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/cheerio": "^0.22.31",
+    "@types/got": "^9.6.12",
     "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^5.35.1",
     "@typescript-eslint/parser": "^5.35.1",
@@ -29,9 +31,8 @@
     "typescript": "^4.8.2"
   },
   "dependencies": {
-    "@types/got": "^9.6.12",
     "abstract-level": "^1.0.3",
-    "cheerio": "^1.0.0-rc.12",
+    "cheerio": "^0.22.0",
     "dotenv": "^16.0.1",
     "got": "^11.8.2",
     "level": "^8.0.0",

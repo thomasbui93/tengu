@@ -1,10 +1,7 @@
-import { verifyPoemEntries } from './features/thivien/verification';
-import { syncPoem } from './features/thivien/run';
-import { localToRemoteSync } from './features/thivien/localToRemoteSync';
+import { syncPoem } from './features/thivien/run'
 
 const run = async () => {
-  await verifyPoemEntries();
-  await localToRemoteSync()
+  await syncPoem()
 }
 
 run()
