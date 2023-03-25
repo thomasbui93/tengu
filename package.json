@@ -5,8 +5,10 @@
   "main": "src/index.ts",
   "scripts": {
     "prestart": "npm install && npm run build",
-    "start": "node dist/index.js",
-    "dev": "nodemon src/index.ts",
+    "sync:poem": "node dist/features/thivien/index.js",
+    "sync:poem:dev": "node src/features/thivien/index.ts",
+    "sync:algo": "nodemon dist/features/algo/index.js",
+    "sync:algo:dev": "nodemon src/features/algo/index.ts",
     "build": "tsc",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",

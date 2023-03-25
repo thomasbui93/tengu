@@ -1,4 +1,4 @@
-import { syncPoem } from './features/thivien/run'
+import { syncPoem } from './run'
 
 const run = async () => {
   await syncPoem()
